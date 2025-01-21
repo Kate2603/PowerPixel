@@ -17,10 +17,156 @@
     />
     
     <script type="module" crossorigin src="/PowerPixel/index.js"></script>
-    <link rel="stylesheet" href="/PowerPixel/assets/index-bd15418e.css">
+    <link rel="stylesheet" href="/PowerPixel/assets/index-154011ff.css">
   </head>
   <body>
-    
+    <header class="header" id="home">
+  <div class="header-container container">
+    <a href="index.html" class="header-logo">
+      <svg class="logo">
+        <use href="/PowerPixel/assets/sprite-d3065eb9.svg#icon-your-energy"></use>
+      </svg>
+    </a>
+    <nav class="header-nav font-nav-link">
+      <ul class="header-nav-list">
+        <li class="header-nav-item active">
+          <a class="header-nav-link" aria-label="link to home page" href="#home"
+            >Home</a
+          >
+        </li>
+        <li class="header-nav-item">
+          <a
+            class="header-nav-link"
+            aria-label="link to favorites page"
+            href="#favorites"
+            >Favorites</a
+          >
+        </li>
+      </ul>
+      <button
+        class="mobile-menu-btn js-open-menu"
+        aria-label="Open mobile menu"
+      >
+        <svg class="mobile-menu-icon" width="32" height="32">
+          <use href="/PowerPixel/assets/sprite-d3065eb9.svg#burger"></use>
+        </svg>
+      </button>
+    </nav>
+    <ul class="socials header-socials">
+      <li class="btn-socials">
+        <a
+          class="socials-link"
+          href="https://www.facebook.com/goITclub/"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Link to Facebook"
+        >
+          <svg class="socials-icon" width="28" height="28">
+            <use class="no-hover" href="/PowerPixel/assets/sprite-d3065eb9.svg#facebook"></use>
+          </svg>
+        </a>
+      </li>
+      <li class="btn-socials">
+        <a
+          class="btn-socials.on-white"
+          href="https://www.instagram.com/goitclub/"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Link to Instagram"
+        >
+          <svg class="socials-icon" width="28" height="28">
+            <use href="/PowerPixel/assets/sprite-d3065eb9.svg#instagram"></use>
+          </svg>
+        </a>
+      </li>
+      <li class="btn-socials">
+        <a
+          class="socials-link"
+          href="https://www.youtube.com/c/GoIT"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Link to Youtube"
+        >
+          <svg class="socials-icon" width="28" height="28">
+            <use href="/PowerPixel/assets/sprite-d3065eb9.svg#youtube"></use>
+          </svg>
+        </a>
+      </li>
+    </ul>
+  </div>
+
+  <!-- Mobile Menu Overlay Structure -->
+  <div class="menu-backdrop js-menu-container" style="display: none">
+    <div id="mobileMenu" class="mob-menu">
+      <button class="close-btn js-close-menu" aria-label="Close mobile menu">
+        <svg class="menu-close-icon" width="32" height="32">
+          <use href="/PowerPixel/assets/sprite-d3065eb9.svg#cross"></use>
+        </svg>
+      </button>
+      <nav class="header-nav font-nav-link">
+        <ul class="header-nav-list">
+          <li class="header-nav-item">
+            <a
+              class="header-nav-link active"
+              aria-label="link to home page"
+              href="#home"
+              >Home</a
+            >
+          </li>
+          <li class="header-nav-item">
+            <a
+              class="header-nav-link"
+              aria-label="link to favorites page"
+              href="#favorites"
+              >Favorites</a
+            >
+          </li>
+        </ul>
+      </nav>
+      <ul class="socials header-socials">
+        <li class="btn-socials">
+          <a
+            class="socials-link"
+            href="https://www.facebook.com/goITclub/"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Link to Facebook"
+          >
+            <svg class="socials-icon" width="28" height="28">
+              <use class="no-hover" href="/PowerPixel/assets/sprite-d3065eb9.svg#facebook"></use>
+            </svg>
+          </a>
+        </li>
+        <li class="btn-socials">
+          <a
+            class="btn-socials.on-white"
+            href="https://www.instagram.com/goitclub/"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Link to Instagram"
+          >
+            <svg class="socials-icon" width="28" height="28">
+              <use href="/PowerPixel/assets/sprite-d3065eb9.svg#instagram"></use>
+            </svg>
+          </a>
+        </li>
+        <li class="btn-socials">
+          <a
+            class="socials-link"
+            href="https://www.youtube.com/c/GoIT"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Link to Youtube"
+          >
+            <svg class="socials-icon" width="28" height="28">
+              <use href="/PowerPixel/assets/sprite-d3065eb9.svg#youtube"></use>
+            </svg>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</header>
 
 
     <main>
@@ -35,7 +181,7 @@
           rel="noopener noreferrer"
           title="Перейти на головну сторінку">
             <svg class="logo">
-              <use href="/PowerPixel/assets/sprite-3b5f75e5.svg#icon-your-energy"></use>
+              <use href="/PowerPixel/assets/sprite-d3065eb9.svg#icon-your-energy"></use>
             </svg>
           </a>
           <ul class="social-media-links">
@@ -47,7 +193,7 @@
                 title="Перейти на сторінку GoIT Club у Facebook"
               >
                 <svg width="28" height="28">
-                  <use href="/PowerPixel/assets/sprite-3b5f75e5.svg#facebook"></use>
+                  <use href="/PowerPixel/assets/sprite-d3065eb9.svg#facebook"></use>
                 </svg>
               </a>
             </li>
@@ -59,7 +205,7 @@
                 title="Перейти на сторінку GoIT Club у Instagram"
               >
                 <svg width="28" height="28">
-                  <use href="/PowerPixel/assets/sprite-3b5f75e5.svg#instagram"></use>
+                  <use href="/PowerPixel/assets/sprite-d3065eb9.svg#instagram"></use>
                 </svg>
               </a>
             </li>
@@ -71,7 +217,7 @@
                 title="Перейти на сторінку GoIT Club у Youtube"
               >
                 <svg width="28" height="28">
-                  <use href="/PowerPixel/assets/sprite-3b5f75e5.svg#youtube"></use>
+                  <use href="/PowerPixel/assets/sprite-d3065eb9.svg#youtube"></use>
                 </svg>
               </a>
             </li>
