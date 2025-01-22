@@ -17,9 +17,9 @@
     />
     
     <script type="module" crossorigin src="/PowerPixel/assets/vendor-cc1203f3.js"></script>
-    <script type="module" crossorigin src="/PowerPixel/assets/main-5c76572b.js"></script>
+    <script type="module" crossorigin src="/PowerPixel/assets/main-ace44bf2.js"></script>
     <link rel="stylesheet" href="/PowerPixel/assets/vendor-cc075105.css">
-    <link rel="stylesheet" href="/PowerPixel/assets/main-8d99ba23.css">
+    <link rel="stylesheet" href="/PowerPixel/assets/main-8945abc0.css">
   </head>
   <body>
     <header class="header" id="home">
@@ -213,16 +213,27 @@
                   </p>
                 </div>
               </div>
-              <picture>
-                <img
-                  class="favorites quote-image border-radius"
-                  src=""
-                  alt="girls"
-                  width="335"
-                  height="242"
-                  loading="lazy"
-                />
-              </picture>
+              <div class="favorites quote-image border-radius">
+                <picture>
+                  <source
+                    media="(min-width:1440px)"
+                    srcset="/PowerPixel/assets/favorites-quote-desktop-1x-d5c03568.jpg 1x, /PowerPixel/assets/favorites-quote-desktop-2x-7167c143.jpg 2x"
+                    type="image/jpeg"
+                  />
+                  <source
+                    media="(min-width:768px)"
+                    srcset="/PowerPixel/assets/favorites-quote-tablet-1x-701f2881.jpg 1x, /PowerPixel/assets/favorites-quote-tablet-2x-12d4b8f4.jpg 2x"
+                    type="image/jpeg"
+                  />
+                  <img
+                    src="/PowerPixel/assets/favorites-quote-mobile-1x-146dd5b8.jpg"
+                    srcset="/PowerPixel/assets/favorites-quote-mobile-1x-146dd5b8.jpg 1x, /PowerPixel/assets/favorites-quote-mobile-2x-e86f65d0.jpg 2x"
+                    alt="Women sportswear taking break"
+                    title="Women sportswear taking break"
+                    loading="lazy"
+                  />
+                </picture>
+              </div>
             </div>
             <div class="favorites-added-exercises">
               <!-- Message for no favorites -->

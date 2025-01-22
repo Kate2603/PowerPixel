@@ -9,4 +9,4 @@ background-size: cover;
 				</div>
 			</button>
 		</li> `}).join("")}const x=document.querySelector(".sidebar-quote"),M=document.querySelector(".sidebar-quote-author"),q=async()=>{const t=await b();x.innerHTML=t.quote,M.innerHTML=t.author};q();document.addEventListener("DOMContentLoaded",()=>{L()});
-//# sourceMappingURL=main-5c76572b.js.map
+//# sourceMappingURL=main-ace44bf2.js.map
