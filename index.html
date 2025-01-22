@@ -17,7 +17,9 @@
     />
     
     <script type="module" crossorigin src="/PowerPixel/index.js"></script>
-    <link rel="stylesheet" href="/PowerPixel/assets/index-ec8b8e94.css">
+    <link rel="modulepreload" crossorigin href="/PowerPixel/assets/vendor-cc1203f3.js">
+    <link rel="stylesheet" href="/PowerPixel/assets/vendor-cc075105.css">
+    <link rel="stylesheet" href="/PowerPixel/assets/index-c19bd040.css">
   </head>
   <body>
     <header class="header" id="home">
@@ -29,7 +31,7 @@
       title="Перейти на головну сторінку"
     >
       <svg class="logo">
-        <use href="/PowerPixel/assets/sprite-d3065eb9.svg#icon-your-energy"></use>
+        <use href="/PowerPixel/assets/sprite-56cd4601.svg#icon-your-energy"></use>
       </svg>
     </a>
     <nav class="header-nav font-nav-link">
@@ -53,7 +55,7 @@
         aria-label="Open mobile menu"
       >
         <svg class="mobile-menu-icon" width="32" height="32">
-          <use href="/PowerPixel/assets/sprite-d3065eb9.svg#burger"></use>
+          <use href="/PowerPixel/assets/sprite-56cd4601.svg#burger"></use>
         </svg>
       </button>
     </nav>
@@ -67,7 +69,7 @@
           aria-label="Link to Facebook"
         >
           <svg class="socials-icon" width="28" height="28">
-            <use class="no-hover" href="/PowerPixel/assets/sprite-d3065eb9.svg#facebook"></use>
+            <use class="no-hover" href="/PowerPixel/assets/sprite-56cd4601.svg#facebook"></use>
           </svg>
         </a>
       </li>
@@ -80,7 +82,7 @@
           aria-label="Link to Instagram"
         >
           <svg class="socials-icon" width="28" height="28">
-            <use href="/PowerPixel/assets/sprite-d3065eb9.svg#instagram"></use>
+            <use href="/PowerPixel/assets/sprite-56cd4601.svg#instagram"></use>
           </svg>
         </a>
       </li>
@@ -93,7 +95,7 @@
           aria-label="Link to Youtube"
         >
           <svg class="socials-icon" width="28" height="28">
-            <use href="/PowerPixel/assets/sprite-d3065eb9.svg#youtube"></use>
+            <use href="/PowerPixel/assets/sprite-56cd4601.svg#youtube"></use>
           </svg>
         </a>
       </li>
@@ -105,7 +107,7 @@
     <div id="mobileMenu" class="mob-menu">
       <button class="close-btn js-close-menu" aria-label="Close mobile menu">
         <svg class="menu-close-icon" width="32" height="32">
-          <use href="/PowerPixel/assets/sprite-d3065eb9.svg#cross"></use>
+          <use href="/PowerPixel/assets/sprite-56cd4601.svg#cross"></use>
         </svg>
       </button>
       <nav class="header-nav font-nav-link">
@@ -138,7 +140,7 @@
             aria-label="Link to Facebook"
           >
             <svg class="socials-icon" width="28" height="28">
-              <use class="no-hover" href="/PowerPixel/assets/sprite-d3065eb9.svg#facebook"></use>
+              <use class="no-hover" href="/PowerPixel/assets/sprite-56cd4601.svg#facebook"></use>
             </svg>
           </a>
         </li>
@@ -151,7 +153,7 @@
             aria-label="Link to Instagram"
           >
             <svg class="socials-icon" width="28" height="28">
-              <use href="/PowerPixel/assets/sprite-d3065eb9.svg#instagram"></use>
+              <use href="/PowerPixel/assets/sprite-56cd4601.svg#instagram"></use>
             </svg>
           </a>
         </li>
@@ -164,7 +166,7 @@
             aria-label="Link to Youtube"
           >
             <svg class="socials-icon" width="28" height="28">
-              <use href="/PowerPixel/assets/sprite-d3065eb9.svg#youtube"></use>
+              <use href="/PowerPixel/assets/sprite-56cd4601.svg#youtube"></use>
             </svg>
           </a>
         </li>
@@ -176,7 +178,90 @@
 
     <main>
       <!-- Loads the specified .html file -->
-      
+      <section class="exercises">
+  <div class="container">
+    <div class="title-filter-container">
+      <h2 class="exercises-title">Exercises</h2>
+      <div class="filter-container">
+        <input
+          type="text"
+          class="exercises-filter-input"
+          placeholder="Search"
+        />
+        <ul class="exercises-filter-list">
+          <li class="exercises-filter-item">
+            <button
+              type="button"
+              class="exercises-filter-btn active"
+              data-name="Muscles"
+            >
+              Muscles
+            </button>
+          </li>
+          <li class="exercises-filter-item">
+            <button
+              type="button"
+              class="exercises-filter-btn"
+              data-name="Body parts"
+            >
+              Body parts
+            </button>
+          </li>
+          <li class="exercises-filter-item">
+            <button
+              type="button"
+              class="exercises-filter-btn"
+              data-name="Equipment"
+            >
+              Equipment
+            </button>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="exercises-list-container">
+      <ul class="excercises-categories-list"></ul>
+    </div>
+  </div>
+</section>
+
+<section class="exercises-section container" id="exercises-section">
+  <div class="exercises-content">
+    <div class="exercises-sidebar">
+      <div class="sidebar-quote-wrapper border-radius">
+        <div class="icon-wrapper">
+          <svg class="icon quote-men" width="18" height="20">
+            <use href="/PowerPixel/assets/sprite-56cd4601.svg#men"></use>
+          </svg>
+        </div>
+        <div class="sidebar-quote-text">
+          <p class="sidebar-quote-title">Quote of the day</p>
+          <p class="sidebar-quote overflow-kit">A lot of times I find that people who are blessed with the most talent don't ever develop that attitude, and the ones who aren't blessed in that way are the most competitive and have the biggest heart.</p>
+          <p class="sidebar-quote-author">Name</p>
+        </div>
+        <svg class="icon inverted-commas" width="20" height="20">
+          <use href="/PowerPixel/assets/sprite-56cd4601.svg#inverted-commas"></use>
+        </svg>
+      </div>
+      <picture>
+        <img class="quote-image border-radius" src="" alt="girls" width="335" height="242" loading="lazy">
+      </picture>
+      <div class="sidebar-suggestion-wrapper border-radius">
+        <div class="icon-wrapper-dumbbell">
+          <svg class="icon suggestion-dumbbell" width="20" height="20">
+            <use href="/PowerPixel/assets/sprite-56cd4601.svg#dumbbell"></use>
+          </svg>
+        </div>
+        <div class="sidebar-suggestion-text">
+          <p class="sidebar-suggestion-title">110 min</p>
+          <p class="sidebar-suggestion">Daily norm of sports</p>
+          <p class="sidebar-suggestion-info overflow-kit">The World Health Organization recommends at least 150 minutes of moderate-intensity aerobic physical activity throughout the week for adults aged 18-64. However, what happens if we adjust that number to 110 minutes every day? While it might seem like a high number to hit, dedicating 110 minutes daily to sporting activities may offer unparalleled benefits to physical health, mental well-being, and overall quality of life.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
     </main>
     <footer class="footer">
     <div class="container">
@@ -186,7 +271,7 @@
           rel="noopener noreferrer"
           title="Перейти на головну сторінку">
             <svg class="logo">
-              <use href="/PowerPixel/assets/sprite-d3065eb9.svg#icon-your-energy"></use>
+              <use href="/PowerPixel/assets/sprite-56cd4601.svg#icon-your-energy"></use>
             </svg>
           </a>
           <ul class="social-media-links">
@@ -198,7 +283,7 @@
                 title="Перейти на сторінку GoIT Club у Facebook"
               >
                 <svg width="28" height="28">
-                  <use href="/PowerPixel/assets/sprite-d3065eb9.svg#facebook"></use>
+                  <use href="/PowerPixel/assets/sprite-56cd4601.svg#facebook"></use>
                 </svg>
               </a>
             </li>
@@ -210,7 +295,7 @@
                 title="Перейти на сторінку GoIT Club у Instagram"
               >
                 <svg width="28" height="28">
-                  <use href="/PowerPixel/assets/sprite-d3065eb9.svg#instagram"></use>
+                  <use href="/PowerPixel/assets/sprite-56cd4601.svg#instagram"></use>
                 </svg>
               </a>
             </li>
@@ -222,7 +307,7 @@
                 title="Перейти на сторінку GoIT Club у Youtube"
               >
                 <svg width="28" height="28">
-                  <use href="/PowerPixel/assets/sprite-d3065eb9.svg#youtube"></use>
+                  <use href="/PowerPixel/assets/sprite-56cd4601.svg#youtube"></use>
                 </svg>
               </a>
             </li>
