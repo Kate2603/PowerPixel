@@ -56,7 +56,7 @@
     <path stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="4" stroke-width="2.6667" d="M28 28l-5.8-5.8"></path>
   </symbol>
   <symbol id="cross" viewBox="0 0 32 32">
-    <path stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="4" stroke-width="2.6667" d="M22.667 9.333l-13.333 13.333M9.333 9.333l13.333 13.333"></path>
+    <path fill="none" stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="4" stroke-width="2.6667" d="M22.667 9.333l-13.333 13.333M9.333 9.333l13.333 13.333"></path>
   </symbol>
   <symbol id="scroll-up" viewBox="0 0 31 32">
     <path fill="#f4f4f4" style="fill: var(--color3, #f4f4f4)" d="M16.413 7.652v17.019h-1.811v-17.019l-8.509 8.509-1.28-1.28 10.695-10.695 10.695 10.695-1.28 1.28-8.509-8.509z"></path>
