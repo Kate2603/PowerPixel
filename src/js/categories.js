@@ -9,9 +9,17 @@ const excercisesMusclesList = document.querySelector(
 
 const currentPage = window.location.pathname;
 
-if (currentPage === '/index.html') {
+if (
+  currentPage === '/PowerPixel' ||
+  currentPage === '/PowerPixel/index.html' ||
+  currentPage === '/' ||
+  currentPage === '/index.html'
+) {
   filterMuscleBtn.classList.add('active');
-} else if (currentPage === '/favorites.html') {
+} else if (
+  currentPage === '/favorites.html' ||
+  currentPage === '/PowerPixel/favorites.html'
+) {
   filterMuscleBtn.classList.remove('active');
 }
 
