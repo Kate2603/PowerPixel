@@ -17,9 +17,9 @@
     />
     
     <script type="module" crossorigin src="/PowerPixel/assets/vendor-cc1203f3.js"></script>
-    <script type="module" crossorigin src="/PowerPixel/assets/main-ac7f74b9.js"></script>
+    <script type="module" crossorigin src="/PowerPixel/assets/main-5c76572b.js"></script>
     <link rel="stylesheet" href="/PowerPixel/assets/vendor-cc075105.css">
-    <link rel="stylesheet" href="/PowerPixel/assets/main-5b4573b6.css">
+    <link rel="stylesheet" href="/PowerPixel/assets/main-8d99ba23.css">
   </head>
   <body>
     <header class="header" id="home">
@@ -180,45 +180,67 @@
       <!-- Loads the specified .html file -->
       <section class="favorites">
         <div class="container">
-            <div class="favorites-content">
-              <div class="favorites-sidebar">
-                <div class="favorites sidebar-quote-wrapper border-radius">
-                  <div class="icon-wrapper">
-                    <svg class="icon quote-men" width="18" height="20">
-                      <use href="/PowerPixel/assets/sprite-16e9845b.svg#men"></use>
-                    </svg>
-                  </div>
-                  <div class="favorites sidebar-quote-text">
-                    <p class="favorites sidebar-quote-title">Quote of the day</p>
-                    <p class="favorites sidebar-quote overflow-kit" name="sidebar-quote"></p>
-                    <p class="favorites sidebar-quote-author"></p>
-                  </div>
-                  <svg class="icon inverted-commas" width="20" height="20">
-                    <use href="/PowerPixel/assets/sprite-16e9845b.svg#inverted-commas"></use>
+          <div class="favorites-content">
+            <div class="favorites-sidebar">
+              <div class="favorites sidebar-quote-wrapper border-radius">
+                <div class="icon-wrapper">
+                  <svg class="icon quote-men" width="18" height="20">
+                    <use href="/PowerPixel/assets/sprite-16e9845b.svg#men"></use>
                   </svg>
                 </div>
-                <div class="favorites sidebar-suggestion-wrapper border-radius">
-                  <div class="icon-wrapper-dumbbell">
-                    <svg class="icon suggestion-dumbbell" width="20" height="20">
-                      <use href="/PowerPixel/assets/sprite-16e9845b.svg#dumbbell"></use>
-                    </svg>
-                  </div>
-                  <div class="favorites sidebar-suggestion-text">
-                    <p class="favorites sidebar-suggestion-title">110 min</p>
-                    <p class="favorites sidebar-suggestion">Daily norm of sports</p>
-                  </div>
+                <div class="favorites sidebar-quote-text">
+                  <p class="favorites sidebar-quote-title">Quote of the day</p>
+                  <p
+                    class="favorites sidebar-quote overflow-kit"
+                    name="sidebar-quote"
+                  ></p>
+                  <p class="favorites sidebar-quote-author"></p>
                 </div>
-                <picture>
-                  <img class="favorites quote-image border-radius" src="" alt="girls" width="335" height="242" loading="lazy">
-                </picture>
+                <svg class="icon inverted-commas" width="20" height="20">
+                  <use href="/PowerPixel/assets/sprite-16e9845b.svg#inverted-commas"></use>
+                </svg>
               </div>
-              <div class="favorites-added-exercises"></div>
+              <div class="favorites sidebar-suggestion-wrapper border-radius">
+                <div class="icon-wrapper-dumbbell">
+                  <svg class="icon suggestion-dumbbell" width="20" height="20">
+                    <use href="/PowerPixel/assets/sprite-16e9845b.svg#dumbbell"></use>
+                  </svg>
+                </div>
+                <div class="favorites sidebar-suggestion-text">
+                  <p class="favorites sidebar-suggestion-title">110 min</p>
+                  <p class="favorites sidebar-suggestion">
+                    Daily norm of sports
+                  </p>
+                </div>
+              </div>
+              <picture>
+                <img
+                  class="favorites quote-image border-radius"
+                  src=""
+                  alt="girls"
+                  width="335"
+                  height="242"
+                  loading="lazy"
+                />
+              </picture>
+            </div>
+            <div class="favorites-added-exercises">
+              <!-- Message for no favorites -->
+              <p class="no-favorites-message" style="display: none">
+                It appears that you haven't added any exercises to your
+                favorites yet. To get started, you can add exercises that you
+                like to your favorites for easier access in the future.
+              </p>
+
+              <!-- Container for favorite exercises -->
+              <div class="favorites-container"></div>
             </div>
           </div>
+        </div>
       </section>
-
     </main>
 
     
+    <script src="./js/favorites.js"></script>
   </body>
 </html>
