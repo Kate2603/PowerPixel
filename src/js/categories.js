@@ -1,4 +1,5 @@
-import { fetchCategories, fetchExercises } from './api.js';
+import { fetchCategories, fetchExercises, fetchExerciseById } from './api.js';
+import { openExerciseModal } from './exercise-modal.js';
 
 const filterMuscleBtn = document.querySelector('button[data-name="Muscles"]');
 const filterBodyPartsBtn = document.querySelector(
@@ -7,96 +8,93 @@ const filterBodyPartsBtn = document.querySelector(
 const filterEquipmentBtn = document.querySelector(
   'button[data-name="Equipment"]'
 );
-export const exercisesList = document.querySelector('.exercises-categories-list');
+export const exercisesList = document.querySelector(
+  '.exercises-categories-list'
+);
+
+const exercisesListContainer = document.querySelector(
+  '.exercises-list-container'
+);
+const filteredExerciseListContainer = document.querySelector(
+  '.filtered-exercises-list-container'
+);
+const filteredExerciseList = document.querySelector(
+  '.filtered-exercises-categories-list'
+);
 
 let page = 1;
-let categoriesExcercises;
 
-filterMuscleBtn.addEventListener('click', async event => {
-  filterMuscleBtn.classList.add('active');
-  filterEquipmentBtn.classList.remove('active');
-  filterBodyPartsBtn.classList.remove('active');
-
-  exercisesListContainer.classList.remove("hidden");
-  filteredExerciseListContainer.classList.add("hidden");
-
-  creatGalleryMarkup('Muscles');
-});
-
-filterBodyPartsBtn.addEventListener('click', async event => {
+const handleFilterClick = async filter => {
   filterMuscleBtn.classList.remove('active');
-  filterEquipmentBtn.classList.remove('active');
-  filterBodyPartsBtn.classList.add('active');
-
-  exercisesListContainer.classList.remove("hidden");
-  filteredExerciseListContainer.classList.add("hidden");
-
-  creatGalleryMarkup('Body parts');
-});
-
-filterEquipmentBtn.addEventListener('click', async event => {
-  filterMuscleBtn.classList.remove('active');
-  filterEquipmentBtn.classList.add('active');
   filterBodyPartsBtn.classList.remove('active');
+  filterEquipmentBtn.classList.remove('active');
 
-  exercisesListContainer.classList.remove("hidden");
-  filteredExerciseListContainer.classList.add("hidden");
+  switch (filter) {
+    case 'Muscles':
+      filterMuscleBtn.classList.add('active');
+      break;
+    case 'Body parts':
+      filterBodyPartsBtn.classList.add('active');
+      break;
+    case 'Equipment':
+      filterEquipmentBtn.classList.add('active');
+      break;
+  }
 
-  creatGalleryMarkup('Equipment');
-});
+  exercisesListContainer.classList.remove('hidden');
+  filteredExerciseListContainer.classList.add('hidden');
 
-async function creatGalleryMarkup(filter) {
+  await createGalleryMarkup(filter);
+};
+
+filterMuscleBtn.addEventListener('click', () => handleFilterClick('Muscles'));
+filterBodyPartsBtn.addEventListener('click', () =>
+  handleFilterClick('Body parts')
+);
+filterEquipmentBtn.addEventListener('click', () =>
+  handleFilterClick('Equipment')
+);
+
+async function createGalleryMarkup(filter) {
   try {
-    categoriesExcercises = await fetchCategories(filter, page);
-
+    const categoriesExercises = await fetchCategories(filter, page);
     exercisesList.innerHTML = '';
     exercisesList.insertAdjacentHTML(
       'beforeend',
-      createGalleryCards(categoriesExcercises.results)
+      createGalleryCards(categoriesExercises.results)
     );
   } catch (error) {
-    console.log('Error fetching categories:', error);
+    console.error('Error fetching categories:', error);
   }
 }
 
 export async function homePageCategoriesLayout() {
   filterMuscleBtn.classList.add('active');
-  creatGalleryMarkup('Muscles');
+  await createGalleryMarkup('Muscles');
 }
 
 function createGalleryCards(images) {
   return images
     .map(image => {
       const { filter, name, imgURL } = image;
-      return ` <li class="exercises-categories-item" data-body-part='${name}' data-category-filter='${filter}'>
-			<button type="button" class="exercises-categories-btn"  alt="${name}" style='background: linear-gradient(0deg, rgba(17, 17, 17, 0.50) 0%, rgba(17, 17, 17, 0.50) 100%), url(${imgURL}) no-repeat;
-background-size: cover;
-	background-position: center;'
-
-				<div class="exercises-categories-info">
-					<h3 class="exercises-category-title">${name}</h3>
-					<p class="exercises-category-descr">${filter}</p>
-				</div>
-			</button>
-		</li> `;
+      return `
+        <li class="exercises-categories-item" data-body-part='${name}' data-category-filter='${filter}'>
+          <button type="button" class="exercises-categories-btn" alt="${name}" style='background: linear-gradient(0deg, rgba(17, 17, 17, 0.50) 0%, rgba(17, 17, 17, 0.50) 100%), url(${imgURL}) no-repeat; background-size: cover; background-position: center;'>
+            <div class="exercises-categories-info">
+              <h3 class="exercises-category-title">${name}</h3>
+              <p class="exercises-category-descr">${filter}</p>
+            </div>
+          </button>
+        </li>`;
     })
     .join('');
 }
 
-
-// List of exercises
-
-const filteredExerciseList = document.querySelector(".filtered-exercises-categories-list")
-const exercisesListContainer = document.querySelector(".exercises-list-container")
-const filteredExerciseListContainer = document.querySelector(".filtered-exercises-list-container")
-let fetchParams = {}
-
-exercisesList.addEventListener('click', async event =>  {
+exercisesList.addEventListener('click', async event => {
   const listItem = event.target.closest('.exercises-categories-item');
-  filteredExerciseListContainer.classList.remove("hidden");
-
-  // Fetch parameters for exercises
   if (listItem) {
+    filteredExerciseListContainer.classList.remove('hidden');
+
     let category = '';
     switch (listItem.getAttribute('data-category-filter')) {
       case 'Muscles':
@@ -107,51 +105,59 @@ exercisesList.addEventListener('click', async event =>  {
         break;
       case 'Equipment':
         category = 'equipment';
-        break
+        break;
     }
-    // Add pagination
+
     const target = listItem.getAttribute('data-body-part');
-    fetchParams = {
-      [category]:  target,
+    const fetchParams = {
+      [category]: target,
       keyword: '',
       page: 1,
       limit: 10,
+    };
+
+    try {
+      const filteredExercises = await fetchExercises(fetchParams);
+      filteredExerciseList.innerHTML = drawFilteredExercises(
+        filteredExercises.results
+      );
+    } catch (error) {
+      console.error('Error fetching exercises:', error);
     }
-    exercisesListContainer.classList.add("hidden");
   }
-
-  //Log parameters
-  console.log(fetchParams);
-  const filteredExercises = await fetchExercises({...fetchParams});
-
-  // Log results
-  console.log(filteredExercises.results)
-
-  filteredExerciseList.innerHTML = drawFilteredExercises(filteredExercises.results);
 });
 
-
-const drawFilteredExercises = (items) => {
+const drawFilteredExercises = items => {
   return items
-    .map ((item) => {
-      return `<li>
-                <div class="filtered-exercises-categories-list-item">
-                  <svg class="icon" aria-hidden="true" width="24" height="24">
-                    <use href="./img/sprite.svg#men"></use>
-                  </svg>
-                  <h3>${item.name}</h3>
-                  <p><strong>Calories:</strong> ${item.burnedCalories} / 3 min</p>
-                  <p><strong>Body Part:</strong> ${item.bodyPart}</p>
-                  <p><strong>Target:</strong> ${item.target}</p>
-                  <p><strong>Rating:</strong>
-                    <svg class="star-icon" aria-hidden="true" width="24" height="24">
-                      <use href="./img/sprite.svg#stars"></use>
-                    </svg>
-                    ${item.rating}
-                  </p>
-                    <button class="start-button">Start</button>
-                </div>
-              </li>`
+    .map(item => {
+      return `
+        <li>
+          <div class="filtered-exercises-categories-list-item">
+            <svg class="icon" aria-hidden="true" width="24" height="24">
+              <use href="./img/sprite.svg#men"></use>
+            </svg>
+            <h3>${item.name}</h3>
+            <p><strong>Calories:</strong> ${item.burnedCalories} / 3 min</p>
+            <p><strong>Body Part:</strong> ${item.bodyPart}</p>
+            <p><strong>Target:</strong> ${item.target}</p>
+            <p><strong>Rating:</strong>
+              <svg class="star-icon" aria-hidden="true" width="24" height="24">
+                <use href="./img/sprite.svg#stars"></use>
+              </svg>
+              ${item.rating}
+            </p>
+            <button class="start-button" data-id="${item.id}">Start</button>
+          </div>
+        </li>`;
     })
-    .join('')
-}
+    .join('');
+};
+
+filteredExerciseList.addEventListener('click', async event => {
+  const startButton = event.target.closest('.start-button');
+  if (startButton) {
+    const exerciseId = startButton.getAttribute('data-id');
+    const exercise = await fetchExerciseById(exerciseId);
+    openExerciseModal(exercise);
+  }
+});

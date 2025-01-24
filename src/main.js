@@ -12,4 +12,3 @@ import './js/categories.js';
 import './js/exercise-modal.js';
 import './js/quote.js';
 import './js/scroll-up.js';
-import './js/exercise-modal.js';
