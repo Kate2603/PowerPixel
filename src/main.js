@@ -9,5 +9,7 @@ document.addEventListener('DOMContentLoaded', () => {
 import './js/mobilemenu';
 import './js/header-toggle.js';
 import './js/categories.js';
+import './js/exercise-modal.js';
 import './js/quote.js';
 import './js/scroll-up.js';
+import './js/exercise-modal.js';

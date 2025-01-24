@@ -1,0 +1,114 @@
+<button class="exercise-modal__btn" id="modalExercise">Modal</button>
+
+<div class="exercise-modal">
+  <div class="exercise-modal__wrapper">
+    <div class="exercise-modal__close">
+      <svg class="cross">
+        <use href="./img/sprite.svg#cross"></use>
+      </svg>
+    </div>
+    <div class="exercise-modal__body">
+      <div class="exercise-modal__video">
+        <!-- Відео буде вставлено тут через JavaScript -->
+      </div>
+      <div class="exercise-modal__image">
+        <img id="modalImage" src="" alt="Exercise Image" />
+      </div>
+      <div class="exercise-modal__content">
+        <div class="exercise-modal__title">Exercise Title</div>
+        <div class="exercise-modal__rates">
+          <div class="exercise-modal__rates-total" id="modalRating">
+            <!-- Рейтинг буде вставлений тут -->
+          </div>
+          <div class="exercise-modal__rates-wrapper" id="modalStars">
+            <!-- Зірочки будуть вставлені тут -->
+          </div>
+        </div>
+        <div class="exercise-modal__attributes">
+          <div class="exercise-modal__attribute">
+            <span>Target</span>
+            <span id="modalTarget">Target Area</span>
+          </div>
+          <div class="exercise-modal__attribute">
+            <span>Body Part</span>
+            <span id="modalBodyPart">Body Part</span>
+          </div>
+          <div class="exercise-modal__attribute">
+            <span>Equipment</span>
+            <span id="modalEquipment">Equipment</span>
+          </div>
+          <div class="exercise-modal__attribute">
+            <span>Popular</span>
+            <span id="modalPopular">Popularity</span>
+          </div>
+          <div class="exercise-modal__attribute">
+            <span>Burned calories</span>
+            <span id="modalCalories">Calories</span>
+          </div>
+        </div>
+        <div class="exercise-modal__description" id="modalDescription">
+          <!-- Опис буде вставлений тут -->
+        </div>
+        <div class="exercise-modal__buttons">
+          <button class="exercise-modal__btn" type="button" id="addToFavorites">
+            <span>
+              Add to favorites
+              <svg>
+                <use href="./img/sprite.svg#favorite"></use>
+              </svg>
+            </span>
+          </button>
+          <button class="exercise-modal__btn" type="button" id="giveRating">
+            Give a rating
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="rating-modal">
+  <div class="rating-modal__wrapper">
+    <div class="rating-modal__close">
+      <svg class="cross">
+        <use href="./img/sprite.svg#cross"></use>
+      </svg>
+    </div>
+    <div id="notification" class="notification"></div>
+    <form id="ratingForm">
+      <h3>Give a Rating</h3>
+      <div>
+        <label>
+          <input type="radio" name="rating" value="1" required /> 1
+        </label>
+        <label>
+          <input type="radio" name="rating" value="2" required /> 2
+        </label>
+        <label>
+          <input type="radio" name="rating" value="3" required /> 3
+        </label>
+        <label>
+          <input type="radio" name="rating" value="4" required /> 4
+        </label>
+        <label>
+          <input type="radio" name="rating" value="5" required /> 5
+        </label>
+      </div>
+      <div>
+        <label for="email">Email:</label>
+        <input
+          type="email"
+          id="email"
+          name="email"
+          required
+          pattern="^\w+(\.\w+)?@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$"
+        />
+      </div>
+      <div>
+        <label for="review">Message:</label>
+        <textarea id="review" name="review" required></textarea>
+      </div>
+      <button type="submit">Submit Rating</button>
+    </form>
+  </div>
+</div>

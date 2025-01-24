@@ -7,6 +7,10 @@ const api = axios.create({
   },
 });
 
+const getLimit = () => {
+  return window.innerWidth < 768 ? 9 : 12;
+};
+
 export const subscribeEmail = async email => {
   const response = await api.post('/subscription', { email });
 
@@ -17,8 +21,7 @@ export const subscribeEmail = async email => {
 };
 
 export const fetchCategories = async (filter = 'Muscles', page = 1) => {
-  const isMobile = window.innerWidth < 768;
-  const limit = isMobile ? 9 : 12;
+  const limit = getLimit();
 
   try {
     const response = await api.get('/filters', {
@@ -55,7 +58,7 @@ export const fetchExercises = async ({
   equipment = '',
   keyword = '',
   page = 1,
-  limit = 10,
+  limit = getLimit(),
 }) => {
   try {
     const response = await api.get('/exercises', {
@@ -85,11 +88,20 @@ export const fetchExerciseById = async id => {
 };
 
 export const rateExercise = async ({ id, rate, email, review }) => {
-  const response = await api.patch(`/exercises/${id}/rating`, { rate, email, review });
+  try {
+    const response = await api.patch(`/exercises/${id}/rating`, {
+      rate,
+      email,
+      review,
+    });
 
-  if (response.data?.error) {
-    throw new Error(response.data?.error || 'Rating update failed');
+    if (response.data?.error) {
+      throw new Error(response.data?.error || 'Rating update failed');
+    }
+
+    return response.data;
+  } catch (error) {
+    console.error('Error updating rating:', error);
+    throw new Error('Failed to update rating. Please try again later.');
   }
-  
-  return response.data;
 };
