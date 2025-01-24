@@ -22,8 +22,8 @@ const handleFilterClick = async filter => {
   filteredExerciseListContainer.classList.add('hidden');
 
   hideSearch();
-  creatGalleryMarkup('Muscles');
-});
+  createGalleryMarkup(filter);
+};
 
 filterBodyPartsBtn.addEventListener('click', async event => {
   filterMuscleBtn.classList.remove('active');
@@ -34,7 +34,7 @@ filterBodyPartsBtn.addEventListener('click', async event => {
   filteredExerciseListContainer.classList.add('hidden');
 
   hideSearch();
-  creatGalleryMarkup('Body parts');
+  createGalleryMarkup('Body parts');
 });
 
 filterEquipmentBtn.addEventListener('click', async event => {
@@ -46,7 +46,7 @@ filterEquipmentBtn.addEventListener('click', async event => {
   filteredExerciseListContainer.classList.add('hidden');
 
   hideSearch();
-  creatGalleryMarkup('Equipment');
+  createGalleryMarkup('Equipment');
 });
 
 async function createGalleryMarkup(filter) {
