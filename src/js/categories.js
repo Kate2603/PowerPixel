@@ -1,5 +1,5 @@
-import { fetchCategories, fetchExercises, fetchExerciseById } from './api.js';
-import { openExerciseModal } from './exercise-modal.js';
+import { fetchCategories, fetchExercises } from './api.js';
+import { hideSearch, showSearch } from './search.js';
 
 const filterMuscleBtn = document.querySelector('button[data-name="Muscles"]');
 const filterBodyPartsBtn = document.querySelector(
@@ -12,48 +12,42 @@ export const exercisesList = document.querySelector(
   '.exercises-categories-list'
 );
 
-const exercisesListContainer = document.querySelector(
-  '.exercises-list-container'
-);
-const filteredExerciseListContainer = document.querySelector(
-  '.filtered-exercises-list-container'
-);
-const filteredExerciseList = document.querySelector(
-  '.filtered-exercises-categories-list'
-);
-
 let page = 1;
 
 const handleFilterClick = async filter => {
   filterMuscleBtn.classList.remove('active');
   filterBodyPartsBtn.classList.remove('active');
-  filterEquipmentBtn.classList.remove('active');
-
-  switch (filter) {
-    case 'Muscles':
-      filterMuscleBtn.classList.add('active');
-      break;
-    case 'Body parts':
-      filterBodyPartsBtn.classList.add('active');
-      break;
-    case 'Equipment':
-      filterEquipmentBtn.classList.add('active');
-      break;
-  }
 
   exercisesListContainer.classList.remove('hidden');
   filteredExerciseListContainer.classList.add('hidden');
 
-  await createGalleryMarkup(filter);
-};
+  hideSearch();
+  creatGalleryMarkup('Muscles');
+});
 
-filterMuscleBtn.addEventListener('click', () => handleFilterClick('Muscles'));
-filterBodyPartsBtn.addEventListener('click', () =>
-  handleFilterClick('Body parts')
-);
-filterEquipmentBtn.addEventListener('click', () =>
-  handleFilterClick('Equipment')
-);
+filterBodyPartsBtn.addEventListener('click', async event => {
+  filterMuscleBtn.classList.remove('active');
+  filterEquipmentBtn.classList.remove('active');
+  filterBodyPartsBtn.classList.add('active');
+
+  exercisesListContainer.classList.remove('hidden');
+  filteredExerciseListContainer.classList.add('hidden');
+
+  hideSearch();
+  creatGalleryMarkup('Body parts');
+});
+
+filterEquipmentBtn.addEventListener('click', async event => {
+  filterMuscleBtn.classList.remove('active');
+  filterEquipmentBtn.classList.add('active');
+  filterBodyPartsBtn.classList.remove('active');
+
+  exercisesListContainer.classList.remove('hidden');
+  filteredExerciseListContainer.classList.add('hidden');
+
+  hideSearch();
+  creatGalleryMarkup('Equipment');
+});
 
 async function createGalleryMarkup(filter) {
   try {
@@ -90,8 +84,24 @@ function createGalleryCards(images) {
     .join('');
 }
 
+// List of exercises
+
+const filteredExerciseList = document.querySelector(
+  '.filtered-exercises-categories-list'
+);
+const exercisesListContainer = document.querySelector(
+  '.exercises-list-container'
+);
+const filteredExerciseListContainer = document.querySelector(
+  '.filtered-exercises-list-container'
+);
+let fetchParams = {};
+
 exercisesList.addEventListener('click', async event => {
   const listItem = event.target.closest('.exercises-categories-item');
+  filteredExerciseListContainer.classList.remove('hidden');
+
+  // Fetch parameters for exercises
   if (listItem) {
     filteredExerciseListContainer.classList.remove('hidden');
 
@@ -109,55 +119,50 @@ exercisesList.addEventListener('click', async event => {
     }
 
     const target = listItem.getAttribute('data-body-part');
-    const fetchParams = {
+    fetchParams = {
       [category]: target,
       keyword: '',
       page: 1,
       limit: 10,
     };
-
-    try {
-      const filteredExercises = await fetchExercises(fetchParams);
-      filteredExerciseList.innerHTML = drawFilteredExercises(
-        filteredExercises.results
-      );
-    } catch (error) {
-      console.error('Error fetching exercises:', error);
-    }
+    exercisesListContainer.classList.add('hidden');
   }
+
+  //Log parameters
+  console.log(fetchParams);
+  const filteredExercises = await fetchExercises({ ...fetchParams });
+
+  // Log results
+  console.log(filteredExercises.results);
+
+  showSearch();
+
+  filteredExerciseList.innerHTML = drawFilteredExercises(
+    filteredExercises.results
+  );
 });
 
 const drawFilteredExercises = items => {
   return items
     .map(item => {
-      return `
-        <li>
-          <div class="filtered-exercises-categories-list-item">
-            <svg class="icon" aria-hidden="true" width="24" height="24">
-              <use href="./img/sprite.svg#men"></use>
-            </svg>
-            <h3>${item.name}</h3>
-            <p><strong>Calories:</strong> ${item.burnedCalories} / 3 min</p>
-            <p><strong>Body Part:</strong> ${item.bodyPart}</p>
-            <p><strong>Target:</strong> ${item.target}</p>
-            <p><strong>Rating:</strong>
-              <svg class="star-icon" aria-hidden="true" width="24" height="24">
-                <use href="./img/sprite.svg#stars"></use>
-              </svg>
-              ${item.rating}
-            </p>
-            <button class="start-button" data-id="${item.id}">Start</button>
-          </div>
-        </li>`;
+      return `<li>
+                <div class="filtered-exercises-categories-list-item">
+                  <svg class="icon" aria-hidden="true" width="24" height="24">
+                    <use href="./img/sprite.svg#men"></use>
+                  </svg>
+                  <h3>${item.name}</h3>
+                  <p><strong>Calories:</strong> ${item.burnedCalories} / 3 min</p>
+                  <p><strong>Body Part:</strong> ${item.bodyPart}</p>
+                  <p><strong>Target:</strong> ${item.target}</p>
+                  <p><strong>Rating:</strong>
+                    <svg class="star-icon" aria-hidden="true" width="24" height="24">
+                      <use href="./img/sprite.svg#stars"></use>
+                    </svg>
+                    ${item.rating}
+                  </p>
+                    <button class="start-button">Start</button>
+                </div>
+              </li>`;
     })
     .join('');
 };
-
-filteredExerciseList.addEventListener('click', async event => {
-  const startButton = event.target.closest('.start-button');
-  if (startButton) {
-    const exerciseId = startButton.getAttribute('data-id');
-    const exercise = await fetchExerciseById(exerciseId);
-    openExerciseModal(exercise);
-  }
-});

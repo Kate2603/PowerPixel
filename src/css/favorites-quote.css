@@ -1,3 +1,13 @@
+section.favorites {
+  margin-top: 60px;
+}
+
+.favorites-content {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
 .favorites-sidebar {
   display: flex;
   flex-direction: column;
@@ -5,6 +15,11 @@
 }
 
 @media only screen and (min-width: 768px) {
+  .favorites-content {
+    flex-direction: column;
+    gap: 64px;
+  }
+
   .favorites-sidebar {
     flex-direction: row;
     flex-wrap: wrap;
@@ -14,12 +29,16 @@
 }
 
 @media only screen and (min-width: 1440px) {
+  .favorites-content {
+    flex-direction: row;
+    gap: 32px;
+  }
+
   .favorites-sidebar {
     row-gap: 16px;
     max-width: 494px;
   }
 }
-
 
 .favorites.sidebar-suggestion-wrapper {
   display: block;
@@ -74,7 +93,7 @@
 }
 
 .favorites-added-exercises {
-  /* Додаткові стилі для блоку вправ */
+  margin: auto;
 }
 
 /* Стилі для повідомлення про відсутність вправ */

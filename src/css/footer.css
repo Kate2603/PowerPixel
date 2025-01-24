@@ -3,6 +3,7 @@
   color: var(--color-background);
   padding-top: 40px;
   padding-bottom: 10px;
+  margin-top: 80px;
 }
 
 .logo {
@@ -33,6 +34,10 @@
 }
 
 @media only screen and (min-width: 768px) {
+  .footer {
+    margin-top: 100px;
+  }
+
   .footer-content-holder {
     grid-template-columns: 156px 400px;
     grid-template-areas:
@@ -42,6 +47,10 @@
 }
 
 @media only screen and (min-width: 1440px) {
+  .footer {
+    margin-top: 132px;
+  }
+
   .footer-content-holder {
     grid-template-columns: 156px 595px 352px;
     grid-template-areas: 'logo title form';

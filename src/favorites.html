@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="./img/favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Your Energy</title>
+    <title>Your Energy - Favorites</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -21,7 +21,6 @@
     <load src="./partials/header.html" />
 
     <main>
-      <!-- Loads the specified .html file -->
       <section class="favorites">
         <div class="container">
           <div class="favorites-content">
@@ -89,15 +88,15 @@
               </div>
             </div>
             <div class="favorites-added-exercises">
-              <!-- Message for no favorites -->
               <p class="no-favorites-message" style="display: none">
                 It appears that you haven't added any exercises to your
                 favorites yet. To get started, you can add exercises that you
                 like to your favorites for easier access in the future.
               </p>
 
-              <!-- Container for favorite exercises -->
-              <div class="favorites-container"></div>
+              <ul class="favorites-list">
+                <!-- Favorite exercises will be dynamically inserted here -->
+              </ul>
             </div>
           </div>
         </div>
@@ -113,9 +112,10 @@
     <load src="./partials/footer.html" />
 
     <script type="module" src="./main.js"></script>
-    <script type="module" src="./js/categories.js"></script>
-    <script type="module" src="./js/favorites.js"></script>
-    <script type="module" src="./js/header-toggle.js"></script>
-    <script type="module" src="./js/scroll-up.js"></script>
+    <script type="module" src="./js/exercises.js"></script>
+    <script src="./js/favorites.js"></script>
+    <script src="./js/mobilemenu.js"></script>
+    <script src="./js/header-toggle.js"></script>
+    <script src="./js/scroll-up.js"></script>
   </body>
 </html>

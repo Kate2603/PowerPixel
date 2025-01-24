@@ -1,82 +1,71 @@
-// Функція для завантаження обраних вправ
+// favorites.js
+
+// Завантаження обраних вправ
 function loadFavorites() {
-    const favoritesContainer = document.querySelector(".favorites-container");
-    const noFavoritesMessage = document.querySelector(".no-favorites-message");
+  const favoritesList = document.querySelector(".favorites-list");
+  const noFavoritesMessage = document.querySelector(".no-favorites-message");
 
-    const favorites = JSON.parse(localStorage.getItem("favorites")) || [];
+  const favorites = JSON.parse(localStorage.getItem("favorites")) || [];
 
-    // Очистити контейнер
-    favoritesContainer.innerHTML = "";
+  // Очищення контейнера
+  favoritesList.innerHTML = "";
 
-    if (favorites.length === 0) {
-        // Показати повідомлення, якщо немає обраних вправ
-        noFavoritesMessage.style.display = "block";
-        favoritesContainer.style.display = "none";
-    } else {
-        // Сховати повідомлення про відсутність обраних вправ
-        noFavoritesMessage.style.display = "none";
-        favoritesContainer.style.display = "grid"; // Припускаємо використання сітки для карток
+  if (favorites.length === 0) {
+    // Показати повідомлення, якщо немає обраних вправ
+    noFavoritesMessage.style.display = "block";
+    favoritesList.style.display = "none";
+  } else {
+    // Сховати повідомлення про відсутність обраних вправ
+    noFavoritesMessage.style.display = "none";
+    favoritesList.style.display = "block";
 
-        // Відобразити кожну обрану вправу
-        favorites.forEach((exercise, index) => {
-            const card = createExerciseCard(exercise, index);
-            favoritesContainer.appendChild(card);
-        });
-    }
+    // Відобразити кожну обрану вправу
+    favorites.forEach((exercise, index) => {
+      const card = createFavoriteCard(exercise, index);
+      favoritesList.appendChild(card);
+    });
+  }
 }
 
-// Функція для створення однієї картки вправи
-function createExerciseCard(exercise, index) {
-    // Створити контейнер картки
-    const card = document.createElement("div");
-    card.classList.add("exercise-card");
+// Функція для створення картки обраної вправи
+function createFavoriteCard(exercise, index) {
+  const card = document.createElement("li");
+  card.classList.add("exercise-card");
 
-    // Вміст картки
-    card.innerHTML = `
-        <h3>${exercise.name}</h3>
-        <p><strong>Калорії:</strong> ${exercise.calories} / 3 хв</p>
-        <p><strong>Частина тіла:</strong> ${exercise.bodyPart}</p>
-        <p><strong>Ціль:</strong> ${exercise.target}</p>
-        <button class="start-button">Start</button>
-        <button class="remove-button">Remove</button>
-    `;
+  card.innerHTML = `
+    <div class="exercise-info">
+      <h3>${exercise.name}</h3>
+      <p><strong>Calories:</strong> ${exercise.calories} / 3 min</p>
+      <p><strong>Body Part:</strong> ${exercise.bodyPart}</p>
+      <p><strong>Target:</strong> ${exercise.target}</p>
+    </div>
+    <button class="remove-button">Remove</button>
+  `;
 
-    // Додати обробники подій
-    const startButton = card.querySelector(".start-button");
-    const removeButton = card.querySelector(".remove-button");
+  // Обробник подій для кнопки "Remove"
+  const removeButton = card.querySelector(".remove-button");
+  removeButton.addEventListener("click", () => {
+    removeFavorite(index);
+  });
 
-    startButton.addEventListener("click", () => {
-        // Місце для логіки модального вікна
-        console.log(`Відкрити модальне вікно для вправи: ${exercise.name}`);
-    });
-
-    removeButton.addEventListener("click", () => {
-        removeFavorite(index);
-    });
-
-    return card;
+  return card;
 }
 
-// Функція для видалення обраної вправи
+// Видалення вправи зі списку обраного
 function removeFavorite(index) {
-    const favorites = JSON.parse(localStorage.getItem("favorites")) || [];
-
-    // Видалити обрану вправу
-    favorites.splice(index, 1);
-
-    // Зберегти оновлений список у localStorage
-    localStorage.setItem("favorites", JSON.stringify(favorites));
-
-    // Перезавантажити обрані вправи
-    loadFavorites();
+  const favorites = JSON.parse(localStorage.getItem("favorites")) || [];
+  favorites.splice(index, 1);
+  localStorage.setItem("favorites", JSON.stringify(favorites));
+  loadFavorites();
 }
 
-// Ініціалізація сторінки "Favorites"
+// Ініціалізація сторінки обраного
 function initFavoritesPage() {
-    loadFavorites();
+  loadFavorites();
 }
 
 document.addEventListener("DOMContentLoaded", initFavoritesPage);
+
 
 
 
