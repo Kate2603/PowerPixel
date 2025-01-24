@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/PowerPixel/assets/favicon-5df10a06.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Your Energy</title>
+    <title>Your Energy - Favorites</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -177,7 +177,6 @@
 
 
     <main>
-      <!-- Loads the specified .html file -->
       <section class="favorites">
         <div class="container">
           <div class="favorites-content">
@@ -236,15 +235,15 @@
               </div>
             </div>
             <div class="favorites-added-exercises">
-              <!-- Message for no favorites -->
               <p class="no-favorites-message" style="display: none">
                 It appears that you haven't added any exercises to your
                 favorites yet. To get started, you can add exercises that you
                 like to your favorites for easier access in the future.
               </p>
 
-              <!-- Container for favorite exercises -->
-              <div class="favorites-container"></div>
+              <ul class="favorites-list">
+                <!-- Favorite exercises will be dynamically inserted here -->
+              </ul>
             </div>
           </div>
         </div>
