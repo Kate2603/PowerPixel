@@ -1,5 +1,5 @@
-import{s as F,f as H,a as N}from"./assets/scroll-up-47d5ac5e.js";import{T as q}from"./assets/vendor-cc1203f3.js";const j=document.querySelector(".pagination-container"),l=document.querySelector(".pagination-pages"),h=document.querySelectorAll(".pagination-arrows"),E=h[0].children[0].children[0],k=h[0].children[1].children[0],x=h[1].children[0].children[0],w=h[1].children[1].children[0];let i;function D(t="Muscles",s=1){fetch(`https://your-energy.b.goit.study/api/filters?filter=${t}&page=${s}&limit=10`).then(e=>e.json()).then(e=>{const a=e.totalPages;if(a>=2){j.removeAttribute("hidden");let c=[];for(let n=0;n<a;n++)c.push(`<li><button class="pagination-page" data-page="${n+1}">${n+1}</button></li>`);l.innerHTML=c.join("")}return i=l.children[s-1].children[0],i.classList.toggle("active",!0),a}).then(e=>{l.addEventListener("click",r=>{if(r.currentTarget!==r.target&&r.target.dataset.page!=i.innerText){const o=r.target;r.target.dataset.page,i.classList.toggle("active",!1),o.classList.toggle("active",!0),i=o,i.dataset.page>1?a():i.dataset.page==1&&c(),i.dataset.page==e?n():d()}});function a(){E.removeAttribute("disabled",""),k.removeAttribute("disabled","")}function c(){E.setAttribute("disabled",""),k.setAttribute("disabled","")}function n(){x.setAttribute("disabled",""),w.setAttribute("disabled","")}function d(){x.removeAttribute("disabled",""),w.removeAttribute("disabled","")}E.addEventListener("click",r=>{i.classList.toggle("active",!1),i=l.children[0].children[0],i.classList.toggle("active",!0),c(),d()}),k.addEventListener("click",r=>{const o=Number(i.dataset.page)-1;i.classList.toggle("active",!1),i=l.children[o-1].children[0],i.classList.toggle("active",!0),i.dataset.page==1&&c(),d()}),x.addEventListener("click",r=>{const o=Number(i.dataset.page)+1;i.classList.toggle("active",!1),i=l.children[o-1].children[0],i.classList.toggle("active",!0),i.dataset.page==e&&n(),a()}),w.addEventListener("click",r=>{i.classList.toggle("active",!1),i=l.children[e-1].children[0],i.classList.toggle("active",!0),n(),a()})}).catch(e=>{console.log(e)})}D();const I=()=>{document.getElementById("subscription-form").addEventListener("submit",async s=>{var c,n,d;s.preventDefault();const e=s.target.elements.email,a=e.value;try{const r=await F(a);if(r){const o=((c=r.data)==null?void 0:c.message)||r.message||"Subscription successful!";q({text:o,duration:3e3,style:{background:"#4CAF50"},close:!0}).showToast(),e.value=""}}catch(r){const o=((d=(n=r.response)==null?void 0:n.data)==null?void 0:d.message)||r.message||"An error occurred. Please try again later.";q({text:o,duration:3e3,style:{background:"#FF5F6D"},close:!0}).showToast()}})},u=document.querySelector(".js-search-form");document.querySelector(".js-search-input");function P(){u.classList.contains("hidden-search")||u.classList.add("hidden-search")}function R(){u.classList.contains("hidden-search")&&u.classList.remove("hidden-search")}const p={exercises:[],pagination:{page:1,limit:10,pagesCount:1}};function G(t){p.exercises=t}function z(){return p.exercises}function O(t){return p.exercises[t]}function K({page:t,limit:s,pagesCount:e}){p.pagination={page:t,limit:s,pagesCount:e}}const g=document.querySelector('button[data-name="Muscles"]'),v=document.querySelector('button[data-name="Body parts"]'),m=document.querySelector('button[data-name="Equipment"]'),M=document.querySelector(".exercises-categories-list");let U=1,A;g.addEventListener("click",async t=>{g.classList.add("active"),m.classList.remove("active"),v.classList.remove("active"),b.classList.remove("hidden"),L.classList.add("hidden"),P(),f("Muscles")});v.addEventListener("click",async t=>{g.classList.remove("active"),m.classList.remove("active"),v.classList.add("active"),b.classList.remove("hidden"),L.classList.add("hidden"),P(),f("Body parts")});m.addEventListener("click",async t=>{g.classList.remove("active"),m.classList.add("active"),v.classList.remove("active"),b.classList.remove("hidden"),L.classList.add("hidden"),P(),f("Equipment")});async function f(t){try{A=await H(t,U),M.innerHTML="",M.insertAdjacentHTML("beforeend",J(A.results))}catch(s){console.log("Error fetching categories:",s)}}async function W(){g.classList.add("active"),f("Muscles")}function J(t){return t.map(s=>{const{filter:e,name:a,imgURL:c}=s;return` <li class="exercises-categories-item" data-body-part='${a}' data-category-filter='${e}'>
-			<button type="button" class="exercises-categories-btn"  alt="${a}" style='background: linear-gradient(0deg, rgba(17, 17, 17, 0.50) 0%, rgba(17, 17, 17, 0.50) 100%), url(${c}) no-repeat;
+import{s as F,f as I,a as N,b as H,g as j,c as D,d as R,e as G}from"./assets/scroll-up-3f1137aa.js";import{T as M}from"./assets/vendor-cc1203f3.js";const O=document.querySelector(".pagination-container"),l=document.querySelector(".pagination-pages"),h=document.querySelectorAll(".pagination-arrows"),y=h[0].children[0].children[0],E=h[0].children[1].children[0],k=h[1].children[0].children[0],w=h[1].children[1].children[0];let i;function z(s="Muscles",t=1){fetch(`https://your-energy.b.goit.study/api/filters?filter=${s}&page=${t}&limit=10`).then(e=>e.json()).then(e=>{const a=e.totalPages;if(a>=2){O.removeAttribute("hidden");let n=[];for(let c=0;c<a;c++)n.push(`<li><button class="pagination-page" data-page="${c+1}">${c+1}</button></li>`);l.innerHTML=n.join("")}return i=l.children[t-1].children[0],i.classList.toggle("active",!0),a}).then(e=>{l.addEventListener("click",r=>{if(r.currentTarget!==r.target&&r.target.dataset.page!=i.innerText){const o=r.target;r.target.dataset.page,i.classList.toggle("active",!1),o.classList.toggle("active",!0),i=o,i.dataset.page>1?a():i.dataset.page==1&&n(),i.dataset.page==e?c():d()}});function a(){y.removeAttribute("disabled",""),E.removeAttribute("disabled","")}function n(){y.setAttribute("disabled",""),E.setAttribute("disabled","")}function c(){k.setAttribute("disabled",""),w.setAttribute("disabled","")}function d(){k.removeAttribute("disabled",""),w.removeAttribute("disabled","")}y.addEventListener("click",r=>{i.classList.toggle("active",!1),i=l.children[0].children[0],i.classList.toggle("active",!0),n(),d()}),E.addEventListener("click",r=>{const o=Number(i.dataset.page)-1;i.classList.toggle("active",!1),i=l.children[o-1].children[0],i.classList.toggle("active",!0),i.dataset.page==1&&n(),d()}),k.addEventListener("click",r=>{const o=Number(i.dataset.page)+1;i.classList.toggle("active",!1),i=l.children[o-1].children[0],i.classList.toggle("active",!0),i.dataset.page==e&&c(),a()}),w.addEventListener("click",r=>{i.classList.toggle("active",!1),i=l.children[e-1].children[0],i.classList.toggle("active",!0),c(),a()})}).catch(e=>{console.log(e)})}z();const J=()=>{document.getElementById("subscription-form").addEventListener("submit",async t=>{var n,c,d;t.preventDefault();const e=t.target.elements.email,a=e.value;try{const r=await F(a);if(r){const o=((n=r.data)==null?void 0:n.message)||r.message||"Subscription successful!";M({text:o,duration:3e3,style:{background:"#4CAF50"},close:!0}).showToast(),e.value=""}}catch(r){const o=((d=(c=r.response)==null?void 0:c.data)==null?void 0:d.message)||r.message||"An error occurred. Please try again later.";M({text:o,duration:3e3,style:{background:"#FF5F6D"},close:!0}).showToast()}})},u=document.querySelector(".js-search-form");document.querySelector(".js-search-input");function S(){u.classList.contains("hidden-search")||u.classList.add("hidden-search")}function K(){u.classList.contains("hidden-search")&&u.classList.remove("hidden-search")}const g=document.querySelector('button[data-name="Muscles"]'),v=document.querySelector('button[data-name="Body parts"]'),m=document.querySelector('button[data-name="Equipment"]'),x=document.querySelector(".exercises-categories-list");let U=1,P;g.addEventListener("click",async s=>{g.classList.add("active"),m.classList.remove("active"),v.classList.remove("active"),f.classList.remove("hidden"),b.classList.add("hidden"),S(),p("Muscles")});v.addEventListener("click",async s=>{g.classList.remove("active"),m.classList.remove("active"),v.classList.add("active"),f.classList.remove("hidden"),b.classList.add("hidden"),S(),p("Body parts")});m.addEventListener("click",async s=>{g.classList.remove("active"),m.classList.add("active"),v.classList.remove("active"),f.classList.remove("hidden"),b.classList.add("hidden"),S(),p("Equipment")});async function p(s){try{P=await I(s,U),x.innerHTML="",x.insertAdjacentHTML("beforeend",Q(P.results))}catch(t){console.log("Error fetching categories:",t)}}async function W(){g.classList.add("active"),p("Muscles")}function Q(s){return s.map(t=>{const{filter:e,name:a,imgURL:n}=t;return` <li class="exercises-categories-item" data-body-part='${a}' data-category-filter='${e}'>
+			<button type="button" class="exercises-categories-btn"  alt="${a}" style='background: linear-gradient(0deg, rgba(17, 17, 17, 0.50) 0%, rgba(17, 17, 17, 0.50) 100%), url(${n}) no-repeat;
 background-size: cover;
 	background-position: center;'
 
@@ -8,7 +8,7 @@ background-size: cover;
 					<p class="exercises-category-descr">${e}</p>
 				</div>
 			</button>
-		</li> `}).join("")}const Q=document.querySelector(".filtered-exercises-categories-list"),b=document.querySelector(".exercises-list-container"),L=document.querySelector(".filtered-exercises-list-container");let $={};M.addEventListener("click",async t=>{const s=t.target.closest(".exercises-categories-item");if(L.classList.remove("hidden"),s){let r="";switch(s.getAttribute("data-category-filter")){case"Muscles":r="muscles";break;case"Body parts":r="bodypart";break;case"Equipment":r="equipment";break}const o=s.getAttribute("data-body-part");$={[r]:o,keyword:"",page:1,limit:10},b.classList.add("hidden")}console.log($);const e=await N({...$}),{results:a,page:c,perPage:n,totalPages:d}=e;console.log("Fetched Exercises",e),R(),G(a),K({page:c,limit:n,pagesCount:d}),Q.innerHTML=V()});const V=()=>z().map(({rating:t,name:s,burnedCalories:e,bodyPart:a,target:c},n)=>`<li>
+		</li> `}).join("")}const V=document.querySelector(".filtered-exercises-categories-list"),f=document.querySelector(".exercises-list-container"),b=document.querySelector(".filtered-exercises-list-container");let $={};x.addEventListener("click",async s=>{const t=s.target.closest(".exercises-categories-item");if(b.classList.remove("hidden"),t){let r="";switch(t.getAttribute("data-category-filter")){case"Muscles":r="muscles";break;case"Body parts":r="bodypart";break;case"Equipment":r="equipment";break}const o=t.getAttribute("data-body-part");$={[r]:o,keyword:"",page:1,limit:10},f.classList.add("hidden")}console.log($);const e=await N({...$}),{results:a,page:n,perPage:c,totalPages:d}=e;console.log("Fetched Exercises",e),K(),H(a),D({page:n,limit:c,pagesCount:d}),V.innerHTML=X()});const X=()=>j().map(({id:s,rating:t,name:e,burnedCalories:a,bodyPart:n,target:c})=>`<li>
                 <div class="filtered-exercises-categories-list-item">
                 <p class="workout"> Workout
                   </p>
@@ -17,7 +17,7 @@ background-size: cover;
                 <svg class="star-icon" aria-hidden="true" width="24" height="24">
                       <use href="./img/sprite.svg#stars"></use>
                     </svg></div>
-                <button class="start-button" data-id="${n}">Start
+                <button class="start-button" data-id="${s}">Start
                   <svg class="icon" aria-hidden="true" width="24" height="24">
                     <use href="./img/sprite.svg#icon-arrow-single-right"></use>
                   </svg>
@@ -27,14 +27,14 @@ background-size: cover;
                   <svg class="icon" aria-hidden="true" width="24" height="24">
                     <use href="./img/sprite.svg#men"></use>
                   </svg>
-                  <h3>${s}</h3>
+                  <h3>${e}</h3>
                   </div>
                   <div class="filtered-categories-content-info">
-                  <p><span>Calories:</span> ${e} / 3 min</p>
-                  <p><span>Body Part:</span> ${a}</p>
+                  <p><span>Calories:</span> ${a} / 3 min</p>
+                  <p><span>Body Part:</span> ${n}</p>
                   <p><span>Target:</span>${c}</p></div></div>
                 </div>
-              </li>`).join(""),S=document.querySelector(".modal-container");document.addEventListener("DOMContentLoaded",function(){document.body.addEventListener("click",t=>{const s=t.target.closest(".start-button");if(s){const e=s.attributes["data-id"].value;X(e)}})});function X(t){const s=O(t);S.innerHTML=Z(s);const e=document.querySelector(".modal-backdrop"),a=document.querySelector(".modal-close"),c=Y({modal:e,modalCloseButton:a});a.addEventListener("click",c),e.classList.add("is-open"),a.style.display="block",document.addEventListener("keydown",C({closeFn:c})),e.addEventListener("click",T({closeFn:c}))}function C({closeFn:t}){return function(s){s.key==="Escape"&&t()}}function T({closeFn:t}){return function(s){s.target===modal&&t()}}function Y({modal:t,modalCloseButton:s}){return function(){t.classList.remove("is-open"),s.style.display="none",document.removeEventListener("keydown",C),t.removeEventListener("click",T),S.innerHTML=""}}function Z({gifUrl:t,name:s,rating:e,target:a,bodyPart:c,equipment:n,popularity:d,burnedCalories:r,time:o,description:y}){const B=e-parseInt(e)>.5?Math.round(e):Math.floor(e);return`<div class="modal-backdrop">
+              </li>`).join(""),q=document.querySelector(".modal-container");document.addEventListener("DOMContentLoaded",function(){document.body.addEventListener("click",s=>{const t=s.target.closest(".start-button");if(t){const e=t.attributes["data-id"].value;Y(e)}})});function Y(s){const t=R(s);q.innerHTML=_(t);const e=document.querySelector(".modal-backdrop"),a=document.querySelector(".modal-close"),n=document.querySelector(".modal-favorite"),c=Z({modal:e,modalCloseButton:a});a.addEventListener("click",c),n.addEventListener("click",()=>{G(s)}),e.classList.add("is-open"),a.style.display="block",document.addEventListener("keydown",A({closeFn:c})),e.addEventListener("click",T({modal:e,closeFn:c}))}function A({closeFn:s}){return function(t){t.key==="Escape"&&s()}}function T({modal:s,closeFn:t}){return function(e){e.target===s&&t()}}function Z({modal:s,modalCloseButton:t}){return function(){s.classList.remove("is-open"),t.style.display="none",document.removeEventListener("keydown",A),s.removeEventListener("click",T),q.innerHTML=""}}function _({id:s,gifUrl:t,name:e,rating:a,target:n,bodyPart:c,equipment:d,popularity:r,burnedCalories:o,time:L,description:C}){const B=a-parseInt(a)>.5?Math.round(a):Math.floor(a);return`<div class="modal-backdrop">
       <div class="modal">
         <button class="modal-close" aria-label="Close modal">
           <svg class="modal-close-icon" width="32" height="32">
@@ -48,9 +48,9 @@ background-size: cover;
 
           <div class="modal-content">
             <div class="modal-header">
-              <h2 class="modal-title">${s}</h2>
+              <h2 class="modal-title">${e}</h2>
               <div class="modal-rating" id="rating" data-rate="${B}">
-                <span>${e}</span>
+                <span>${a}</span>
                 <div class="stars">
                   <svg class="rate-icon" width="18" height="18">
                     <use href="./img/sprite.svg#stars"></use>
@@ -72,21 +72,21 @@ background-size: cover;
             </div>
 
             <div class="modal-details">
-              <p><strong>Target:</strong> ${a}</p>
+              <p><strong>Target:</strong> ${n}</p>
               <p><strong>Body Part:</strong> ${c}</p>
-              <p><strong>Equipment:</strong> ${n}</p>
-              <p><strong>Popular:</strong> ${d}</p>
-              <p><strong>Burned Calories:</strong> ${r}/${o} min</p>
+              <p><strong>Equipment:</strong> ${d}</p>
+              <p><strong>Popular:</strong> ${r}</p>
+              <p><strong>Burned Calories:</strong> ${o}/${L} min</p>
             </div>
 
             <!-- Description -->
             <div class="modal-description">
-              <p>${y}</p>
+              <p>${C}</p>
             </div>
 
             <!-- Footer -->
             <div class="modal-footer">
-              <button class="modal-favorite" data-favorite="false">
+              <button class="modal-favorite" data-favorite="false" data-id="${s}">
                 Add to favorites
                 <svg class="heart-icon" width="20" height="20">
                   <use href="./img/sprite.svg#heart"></use>
@@ -97,5 +97,5 @@ background-size: cover;
           </div>
         </div>
       </div>
-    </div>`}document.addEventListener("DOMContentLoaded",()=>{I(),W()});
+    </div>`}document.addEventListener("DOMContentLoaded",()=>{J(),W()});localStorage.setItem("favorites",JSON.stringify([]));
 //# sourceMappingURL=index.js.map
