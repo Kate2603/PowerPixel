@@ -1,4 +1,4 @@
-import{t as n}from"./assets/scroll-up-5124e2d3.js";import"./assets/vendor-cc1203f3.js";function o(){const t=document.querySelector(".favorites-list"),e=document.querySelector(".no-favorites-message"),s=JSON.parse(localStorage.getItem("favorites"))||[];t.innerHTML="",s.length===0?(e.style.display="block",t.style.display="none"):(e.classList.add("hidden"),s.forEach((i,a)=>{const r=d(i);t.appendChild(r)}))}function d(t){const e=document.createElement("li");return e.classList.add("exercise-card"),e.innerHTML=`<li>
+import{t as n}from"./assets/scroll-up-831affc9.js";import"./assets/vendor-cc1203f3.js";function o(){const t=document.querySelector(".favorites-list"),e=document.querySelector(".no-favorites-message"),s=JSON.parse(localStorage.getItem("favorites"))||[];t.innerHTML="",s.length===0?(e.style.display="block",t.style.display="none"):(e.classList.add("hidden"),s.forEach((i,a)=>{const r=d(i);t.appendChild(r)}))}function d(t){const e=document.createElement("li");return e.classList.add("exercise-card"),e.innerHTML=`<li>
   <div class="filtered-exercises-categories-list-item">
   <p class="workout"> Workout
     </p>
