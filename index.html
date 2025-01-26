@@ -17,7 +17,7 @@
     
     <script type="module" crossorigin src="/PowerPixel/index.js"></script>
     <link rel="modulepreload" crossorigin href="/PowerPixel/assets/vendor-e5c2d73b.js">
-    <link rel="modulepreload" crossorigin href="/PowerPixel/assets/scroll-up-8f21ffdc.js">
+    <link rel="modulepreload" crossorigin href="/PowerPixel/assets/scroll-up-8f416e44.js">
     <link rel="stylesheet" href="/PowerPixel/assets/scroll-up-72f422b3.css">
     <link rel="stylesheet" href="/PowerPixel/assets/vendor-cc075105.css">
   </head>
@@ -310,86 +310,12 @@
     <div class="exercises-wrapper">
       <div class="exercises-list-container">
         <ul class="exercises-categories-list"></ul>
-        <div class="pagination-container" hidden>
-  <!-- Arrows START -->
-  <ul class="pagination-arrows">
-    <li class="js-arrow">
-      <button type="button" class="pagination-arrow" data-element="to-begin" aria-label="Pagination button to go to the first page">
-        <svg width="20" height="20">
-          <use href="/PowerPixel/assets/sprite-1cc48bb1.svg#icon-arrow-double-left"></use>
-        </svg>
-      </button>
-    </li>
-    <li class="js-arrow">
-      <button type="button" class="pagination-arrow" data-element="to-previous" aria-label="Pagination button to go to the previous page">
-        <svg width="20" height="20">
-          <use href="/PowerPixel/assets/sprite-1cc48bb1.svg#icon-arrow-single-left"></use>
-        </svg>
-      </button>
-    </li>
-  </ul>
-  <!-- Pages -->
-  <ul class="pagination-pages" data-element="pages-list"></ul>
-  <!-- Arrows END -->
-  <ul class="pagination-arrows" data-element="arrows-end">
-    <li class="js-arrow">
-      <button type="button" class="pagination-arrow" data-element="to-next" aria-label="Pagination button to go to the next page">
-        <svg width="20" height="20">
-          <use href="/PowerPixel/assets/sprite-1cc48bb1.svg#icon-arrow-single-right"></use>
-        </svg>
-      </button>
-    </li>
-    <li class="js-arrow">
-      <button type="button" class="pagination-arrow" data-element="to-end" aria-label="Pagination button to go to the last page">
-        <svg width="20" height="20">
-          <use href="/PowerPixel/assets/sprite-1cc48bb1.svg#icon-arrow-double-right"></use>
-        </svg>
-      </button>
-    </li>
-  </ul>
-</div>
+        <div id="pagination-exercises" class="pagination-container"></div>
 
       </div>
       <div class="filtered-exercises-list-container hidden">
         <ul class="filtered-exercises-categories-list"></ul>
-        <div class="pagination-container" hidden>
-  <!-- Arrows START -->
-  <ul class="pagination-arrows">
-    <li class="js-arrow">
-      <button type="button" class="pagination-arrow" data-element="to-begin" aria-label="Pagination button to go to the first page">
-        <svg width="20" height="20">
-          <use href="/PowerPixel/assets/sprite-1cc48bb1.svg#icon-arrow-double-left"></use>
-        </svg>
-      </button>
-    </li>
-    <li class="js-arrow">
-      <button type="button" class="pagination-arrow" data-element="to-previous" aria-label="Pagination button to go to the previous page">
-        <svg width="20" height="20">
-          <use href="/PowerPixel/assets/sprite-1cc48bb1.svg#icon-arrow-single-left"></use>
-        </svg>
-      </button>
-    </li>
-  </ul>
-  <!-- Pages -->
-  <ul class="pagination-pages" data-element="pages-list"></ul>
-  <!-- Arrows END -->
-  <ul class="pagination-arrows" data-element="arrows-end">
-    <li class="js-arrow">
-      <button type="button" class="pagination-arrow" data-element="to-next" aria-label="Pagination button to go to the next page">
-        <svg width="20" height="20">
-          <use href="/PowerPixel/assets/sprite-1cc48bb1.svg#icon-arrow-single-right"></use>
-        </svg>
-      </button>
-    </li>
-    <li class="js-arrow">
-      <button type="button" class="pagination-arrow" data-element="to-end" aria-label="Pagination button to go to the last page">
-        <svg width="20" height="20">
-          <use href="/PowerPixel/assets/sprite-1cc48bb1.svg#icon-arrow-double-right"></use>
-        </svg>
-      </button>
-    </li>
-  </ul>
-</div>
+        <div id="pagination-categories" class="pagination-container"></div>
 
       </div>
       <div class="exercises-content">
