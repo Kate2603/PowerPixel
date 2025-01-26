@@ -1,3 +1,12 @@
+.favorites h1 {
+  font-family: 'DM Sans', sans-serif;
+    font-size: 44px;
+    font-weight: 400;
+    line-height: 1.15;
+    letter-spacing: -0.04em;
+    padding: 104px  0  32px 32px;
+}
+
 section.favorites {
   margin-top: 60px;
 }
