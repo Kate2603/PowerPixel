@@ -1,4 +1,4 @@
-import{r as n}from"./assets/scroll-up-efa4142e.js";import"./assets/vendor-cc1203f3.js";function r(){const t=document.querySelector(".favorites-list"),s=document.querySelector(".no-favorites-message"),e=JSON.parse(localStorage.getItem("favorites"))||[];t.innerHTML="",e.length===0?(s.style.display="block",t.style.display="none"):(s.classList.add("hidden"),e.forEach((a,o)=>{const i=d(a);t.appendChild(i)}))}function d(t,s){const e=document.createElement("li");return e.classList.add("exercise-card"),e.innerHTML=`<li>
+import{t as n}from"./assets/scroll-up-484f49c9.js";import"./assets/vendor-cc1203f3.js";function o(){const t=document.querySelector(".favorites-list"),e=document.querySelector(".no-favorites-message"),s=JSON.parse(localStorage.getItem("favorites"))||[];t.innerHTML="",s.length===0?(e.style.display="block",t.style.display="none"):(e.classList.add("hidden"),s.forEach((i,a)=>{const r=d(i);t.appendChild(r)}))}function d(t){const e=document.createElement("li");return e.classList.add("exercise-card"),e.innerHTML=`<li>
   <div class="filtered-exercises-categories-list-item">
   <p class="workout"> Workout
     </p>
@@ -23,5 +23,5 @@ import{r as n}from"./assets/scroll-up-efa4142e.js";import"./assets/vendor-cc1203
     <p><span>Body Part:</span> ${t.bodyPart}</p>
     <p><span>Target:</span>${t.target}</p></div></div>
   </div>
-</li>`,e.querySelector(".remove-button").addEventListener("click",o=>{const i=o.target.attributes["data-id"].value;n(i),r()}),e}function c(){r()}document.addEventListener("DOMContentLoaded",c);
+</li>`,e.querySelector(".remove-button").addEventListener("click",i=>{const a=i.target.attributes["data-id"].value;n(a),o()}),e}function c(){o()}document.addEventListener("DOMContentLoaded",c);
 //# sourceMappingURL=favorites.js.map
