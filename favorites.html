@@ -16,9 +16,9 @@
     
     <script type="module" crossorigin src="/PowerPixel/favorites.js"></script>
     <link rel="modulepreload" crossorigin href="/PowerPixel/assets/vendor-e5c2d73b.js">
-    <link rel="modulepreload" crossorigin href="/PowerPixel/assets/scroll-up-8f416e44.js">
+    <link rel="modulepreload" crossorigin href="/PowerPixel/assets/modal-ce38281f.js">
     <link rel="stylesheet" href="/PowerPixel/assets/vendor-cc075105.css">
-    <link rel="stylesheet" href="/PowerPixel/assets/scroll-up-72f422b3.css">
+    <link rel="stylesheet" href="/PowerPixel/assets/modal-c5568841.css">
     <link rel="stylesheet" href="/PowerPixel/assets/favorites-d16cde8b.css">
   </head>
   <body>
@@ -178,6 +178,9 @@
 
 
     <main>
+      <div class="modal-container"></div>
+
+
       <section class="favorites">
         <div class="container">
           <div class="favorites-title">
@@ -248,6 +251,10 @@
                   <!-- Favorite exercises will be dynamically inserted here -->
                 </ul>
               </div>
+              <div class="favorites-pagination">
+                <div id="pagination-{=$paginationid}" class="pagination-container"></div>
+
+              </div>
             </div>
           </div>
         </div>
@@ -260,6 +267,7 @@
         </a>
       </div>
     </main>
+    
     
     
     

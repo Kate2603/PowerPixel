@@ -1,12 +1,14 @@
-import{t as n}from"./assets/scroll-up-8f416e44.js";import"./assets/vendor-e5c2d73b.js";function o(){const t=document.querySelector(".favorites-list"),e=document.querySelector(".no-favorites-message"),s=JSON.parse(localStorage.getItem("favorites"))||[];t.innerHTML="",s.length===0?(e.style.display="block",t.style.display="none"):(e.classList.add("hidden"),s.forEach((i,a)=>{const r=d(i);t.appendChild(r)}))}function d(t){const e=document.createElement("li");return e.classList.add("exercise-card"),e.innerHTML=`<li>
+import{t as n}from"./assets/modal-ce38281f.js";import"./assets/vendor-e5c2d73b.js";function o(){const t=document.querySelector(".favorites-list"),e=document.querySelector(".no-favorites-message"),s=JSON.parse(localStorage.getItem("favorites"))||[];t.innerHTML="",s.length===0?(e.style.display="block",t.style.display="none"):(e.classList.add("hidden"),s.forEach((i,a)=>{const r=d(i);t.appendChild(r)}))}function d(t){const e=document.createElement("li");return e.classList.add("exercise-card"),e.innerHTML=`<li>
   <div class="filtered-exercises-categories-list-item">
   <div class="favorites-item-header">
+  <div class="favorites-header-remove">
   <p class="workout"> Workout
     </p>
   <button class="remove-button" data-id="${t.id}">
   <svg class="remove-icon" aria-hidden="true" width="18" height="18">
   <use href="./img/sprite.svg#icon-trash"></use>
 </svg></button>
+</div>
   <button class="start-button" data-id="${t.id}">Start
     <svg class="icon-arrow" aria-hidden="true" width="18" height="18">
       <use href="./img/sprite.svg#icon-arrow-right"></use>
