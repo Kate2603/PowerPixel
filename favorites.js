@@ -1,10 +1,28 @@
-import{r as i}from"./assets/scroll-up-e2067c7e.js";import"./assets/vendor-cc1203f3.js";function s(){const t=document.querySelector(".favorites-list"),o=document.querySelector(".no-favorites-message"),e=JSON.parse(localStorage.getItem("favorites"))||[];t.innerHTML="",e.length===0?(o.style.display="block",t.style.display="none"):(o.style.display="none",t.style.display="block",e.forEach((r,a)=>{const n=d(r);t.appendChild(n)}))}function d(t,o){const e=document.createElement("li");return e.classList.add("exercise-card"),e.innerHTML=`
-    <div class="exercise-info">
-      <h3>${t.name}</h3>
-      <p><strong>Calories:</strong> ${t.burnedCalories} / 3 min</p>
-      <p><strong>Body Part:</strong> ${t.bodyPart}</p>
-      <p><strong>Target:</strong> ${t.target}</p>
+import{r}from"./assets/scroll-up-aeac68e5.js";import"./assets/vendor-cc1203f3.js";function n(){const t=document.querySelector(".favorites-list"),s=document.querySelector(".no-favorites-message"),e=JSON.parse(localStorage.getItem("favorites"))||[];t.innerHTML="",e.length===0?(s.style.display="block",t.style.display="none"):(s.classList.add("hidden"),e.forEach((a,o)=>{const i=d(a);t.appendChild(i)}))}function d(t,s){const e=document.createElement("li");return e.classList.add("exercise-card"),e.innerHTML=`<li>
+  <div class="filtered-exercises-categories-list-item">
+  <p class="workout"> Workout
+    </p>
+  <div class="remove-icon">
+  <button class="remove-button" data-id="${t.id}">Remove
+  <svg class="icon" aria-hidden="true" width="24" height="24">
+  <use href="./img/sprite.svg#basket"></use>
+</svg></button></div>
+  <button class="start-button" data-id="${t.id}">Start
+    <svg class="icon" aria-hidden="true" width="24" height="24">
+      <use href="./img/sprite.svg#icon-arrow-single-right"></use>
+    </svg>
+  </button>
+  <div class="filtered-categories-content">
+    <div class="filtered-categories-content-title">
+    <svg class="icon" aria-hidden="true" width="24" height="24">
+      <use href="./img/sprite.svg#men"></use>
+    </svg>
+    <h3>${t.name}</h3>
     </div>
-    <button class="remove-button" data-id="${t.id}">Remove</button>
-  `,e.querySelector(".remove-button").addEventListener("click",a=>{const n=a.target.attributes["data-id"].value;i(n),s()}),e}function c(){s()}document.addEventListener("DOMContentLoaded",c);
+    <div class="filtered-categories-content-info">
+    <p><span>Calories:</span> ${t.burnedCalories} / 3 min</p>
+    <p><span>Body Part:</span> ${t.bodyPart}</p>
+    <p><span>Target:</span>${t.target}</p></div></div>
+  </div>
+</li>`,e.querySelector(".remove-button").addEventListener("click",o=>{const i=o.target.attributes["data-id"].value;r(i),n()}),e}function c(){n()}document.addEventListener("DOMContentLoaded",c);
 //# sourceMappingURL=favorites.js.map
