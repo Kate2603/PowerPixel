@@ -1,14 +1,14 @@
-import{r as n}from"./assets/scroll-up-fbc93a53.js";import"./assets/vendor-cc1203f3.js";function r(){const t=document.querySelector(".favorites-list"),s=document.querySelector(".no-favorites-message"),e=JSON.parse(localStorage.getItem("favorites"))||[];t.innerHTML="",e.length===0?(s.style.display="block",t.style.display="none"):(s.classList.add("hidden"),e.forEach((a,o)=>{const i=d(a);t.appendChild(i)}))}function d(t,s){const e=document.createElement("li");return e.classList.add("exercise-card"),e.innerHTML=`<li>
+import{r as n}from"./assets/scroll-up-6f79f1d8.js";import"./assets/vendor-cc1203f3.js";function r(){const t=document.querySelector(".favorites-list"),s=document.querySelector(".no-favorites-message"),e=JSON.parse(localStorage.getItem("favorites"))||[];t.innerHTML="",e.length===0?(s.style.display="block",t.style.display="none"):(s.classList.add("hidden"),e.forEach((a,o)=>{const i=d(a);t.appendChild(i)}))}function d(t,s){const e=document.createElement("li");return e.classList.add("exercise-card"),e.innerHTML=`<li>
   <div class="filtered-exercises-categories-list-item">
   <p class="workout"> Workout
     </p>
   <button class="remove-button" data-id="${t.id}">
-  <svg class="remove-icon" aria-hidden="true" width="24" height="24">
-  <use href="./img/sprite.svg#basket"></use>
+  <svg class="remove-icon" aria-hidden="true" width="18" height="18">
+  <use href="./img/sprite.svg#icon-trash"></use>
 </svg></button>
   <button class="start-button" data-id="${t.id}">Start
-    <svg class="icon-arrow" aria-hidden="true" width="24" height="24">
-      <use href="./img/sprite.svg#icon-arrow"></use>
+    <svg class="icon-arrow" aria-hidden="true" width="18" height="18">
+      <use href="./img/sprite.svg#icon-arrow-right"></use>
     </svg>
   </button>
   <div class="filtered-categories-content">
