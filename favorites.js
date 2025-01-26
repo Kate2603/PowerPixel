@@ -25,5 +25,5 @@ import{t as n}from"./assets/scroll-up-d2565e10.js";import"./assets/vendor-e5c2d7
     <p><span>Body Part:</span> ${t.bodyPart}</p>
     <p><span>Target:</span>${t.target}</p></div></div>
   </div>
-</li>`,e.querySelector(".remove-button").addEventListener("click",i=>{const a=i.target.attributes["data-id"].value;n(a),o()}),e}function c(){o()}document.addEventListener("DOMContentLoaded",c);
+</li>`,e.querySelector(".remove-button").addEventListener("click",i=>{const a=i.currentTarget.dataset.id;n(a),o()}),e}function c(){o()}document.addEventListener("DOMContentLoaded",c);
 //# sourceMappingURL=favorites.js.map
