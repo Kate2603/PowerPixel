@@ -23,7 +23,7 @@
   "author": "Kateryna Velychko <kate2603.kv@gmail.com>",
   "license": "ISC",
   "dependencies": {
-    "axios": "0.27.2",
+    "axios": "^1.7.9",
     "toastify-js": "^1.12.0"
   }
 }

@@ -19,10 +19,27 @@ section.favorites {
   display: block;
 }
 
-.remove-icon {
-  display: block;
-  stroke: var(--color-black-100);
+/* Кнопка видалення */
+.remove-button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 4px;
+  margin-left: -170px;
+ 
 }
+
+
+
+
+.remove-icon {
+  fill: var(--color-grey-500);
+  width: 18px;
+  height: 18px;
+
+}
+
+
 
 .icon-arrow {
   stroke: var(--color-black-100);
@@ -98,36 +115,124 @@ section.favorites {
   margin-bottom: 6px;
 }
 
+
+
+
+
 .favorites-added-exercises {
-  margin: auto;
+  flex: 1;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  
 }
 
 .favorites-list {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  /* Дві колонки для вправ */
+  gap: 16px;
+  width: 32px;
+}
+
+.favorites-card {
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  justify-content: space-between;
+  padding: 16px;
+  border: 1px solid var(--color-border);
+  border-radius: 12px;
+  background-color: var(--color-white-100);
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.05);
+  
 }
 
-/* Стилі для повідомлення про відсутність вправ */
-.no-favorites-message {
-  display: none;
-  font-family: 'DM Sans', sans-serif;
-  font-size: 1.25rem;
-  color: #333;
-  /* Основний колір тексту */
-  text-align: center;
-  margin: 20px auto;
-  /* Відступи згори та знизу */
-  max-width: 600px;
-  /* Максимальна ширина для тексту */
-  line-height: 1.6;
-  /* Висота рядка для кращої читабельності */
+.favorites-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-.no-favorites-message.hidden {
-  visibility: hidden;
+.favorites-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
 }
 
-.favorites.pagination-container {
-  padding-bottom: 80px;
+.favorites-card-header .workout-label {
+  display: inline-flex;
+  align-items: center;
+  padding: 4px 12px;
+  border: 1px solid var(--color-grey-300);
+  border-radius: 16px;
+  font-size: 12px;
+  font-weight: bold;
+  text-transform: uppercase;
+  color: var(--color-grey-800);
+}
+
+.favorites-card-header .delete-icon {
+  font-size: 16px;
+  color: var(--color-grey-500);
+  cursor: pointer;
+ 
+}
+
+.favorites-card-header .delete-icon:hover {
+  color: var(--color-red);
+}
+
+.favorites-card-body {
+  flex: 1;
+}
+
+.favorites-card-title {
+  font-size: 18px;
+  font-weight: bold;
+  color: var(--color-black-100);
+  margin-bottom: 8px;
+}
+
+.favorites-card-info {
+  font-size: 14px;
+  color: var(--color-grey-600);
+}
+
+.favorites-card-footer {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 12px;
+}
+
+.favorites-card-footer .start-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+  font-weight: bold;
+  color: var(--color-primary);
+  background: none;
+  border: none;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.favorites-card-footer .start-button:hover {
+  color: var(--color-primary-dark);
+}
+
+/* Адаптивність */
+@media only screen and (max-width: 768px) {
+  .favorites-content {
+    flex-direction: column;
+  }
+
+  .favorites-list {
+    grid-template-columns: 1fr;
+    /* Одна колонка на мобільних */
+  }
+
+  .favorites-sidebar {
+    flex: 0 0 100%;
+  }
 }
